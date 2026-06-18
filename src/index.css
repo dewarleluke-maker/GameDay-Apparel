@@ -1,0 +1,33 @@
+:root {
+  --bg: #fbf8f3;
+  --card-bg: #ffffff;
+  --text: #2e2a25;
+  --text-muted: #807868;
+  --border: #e6ddcf;
+  --accent: #d98a4a;
+  --accent-dark: #b96b2c;
+  --danger: #c1554a;
+
+  font: 16px/1.5 system-ui, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  font: inherit;
+}
