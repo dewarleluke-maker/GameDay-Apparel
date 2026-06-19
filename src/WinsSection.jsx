@@ -16,7 +16,9 @@ export default function WinsSection({ wins, onChange }) {
 
   return (
     <section className="card">
-      <h2>Today's Little Wins</h2>
+      <h2>
+        <span className="icon">✨</span> Today's Little Wins
+      </h2>
       <p className="hint">Anything that went well, big or small.</p>
       <div className="add-row">
         <input

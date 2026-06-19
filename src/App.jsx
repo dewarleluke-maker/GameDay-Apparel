@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DateNav from "./DateNav";
 import WinsSection from "./WinsSection";
+import LifeLessonsSection from "./LifeLessonsSection";
 import TodoSection from "./TodoSection";
 import FiveListSection from "./FiveListSection";
 import { useJournal } from "./useJournal";
@@ -15,7 +16,9 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <h1>Daily Wins Journal</h1>
+        <h1>
+          <span className="icon">🌿</span> Daily Wins Journal
+        </h1>
         <p className="tagline">Notice the good, plan ahead, and remember what you're grateful for.</p>
       </header>
 
@@ -27,6 +30,13 @@ export default function App() {
           onChange={(wins) => updateEntry(dateKey, (current) => ({ ...current, wins }))}
         />
 
+        <LifeLessonsSection
+          lessons={entry.lifeLessons}
+          onChange={(lifeLessons) =>
+            updateEntry(dateKey, (current) => ({ ...current, lifeLessons }))
+          }
+        />
+
         <TodoSection
           todos={entry.tomorrowTodos}
           onChange={(tomorrowTodos) =>
@@ -35,6 +45,7 @@ export default function App() {
         />
 
         <FiveListSection
+          icon="🙏"
           title="5 Things I'm Thankful For"
           hint="Take a moment to appreciate what you have."
           items={entry.gratitude}
@@ -43,6 +54,7 @@ export default function App() {
         />
 
         <FiveListSection
+          icon="💪"
           title="5 Affirmations"
           hint="Speak some positivity into tomorrow."
           items={entry.affirmations}

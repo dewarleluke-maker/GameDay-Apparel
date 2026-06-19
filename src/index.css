@@ -1,16 +1,22 @@
 :root {
-  --bg: #fbf8f3;
-  --card-bg: #ffffff;
-  --text: #2e2a25;
-  --text-muted: #807868;
-  --border: #e6ddcf;
-  --accent: #d98a4a;
-  --accent-dark: #b96b2c;
-  --danger: #c1554a;
+  --bg-gradient: linear-gradient(160deg, #fff2e4 0%, #ffe7f1 45%, #ecebff 100%);
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --text: #2b2440;
+  --text-muted: #837a99;
+  --border: rgba(43, 36, 64, 0.1);
+  --accent: #ff7a59;
+  --accent-dark: #e0563a;
+  --accent2: #6c63ff;
+  --accent2-dark: #4c43e0;
+  --danger: #e15554;
+  --shadow: 0 12px 30px -10px rgba(76, 53, 110, 0.18);
+  --shadow-soft: 0 4px 14px -6px rgba(76, 53, 110, 0.12);
 
-  font: 16px/1.5 system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Fraunces", system-ui, serif;
+  --font-body: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  font: 16px/1.55 var(--font-body);
   color: var(--text);
-  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,6 +27,9 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
 }
 
 button {

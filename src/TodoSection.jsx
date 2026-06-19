@@ -20,7 +20,9 @@ export default function TodoSection({ todos, onChange }) {
 
   return (
     <section className="card">
-      <h2>Tomorrow's To-Do List</h2>
+      <h2>
+        <span className="icon">✅</span> Tomorrow's To-Do List
+      </h2>
       <p className="hint">Set up tomorrow before you close out today.</p>
       <div className="add-row">
         <input

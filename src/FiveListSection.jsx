@@ -1,4 +1,4 @@
-export default function FiveListSection({ title, hint, items, placeholder, onChange }) {
+export default function FiveListSection({ icon, title, hint, items, placeholder, onChange }) {
   function updateItem(index, value) {
     const next = [...items];
     next[index] = value;
@@ -7,7 +7,9 @@ export default function FiveListSection({ title, hint, items, placeholder, onCha
 
   return (
     <section className="card">
-      <h2>{title}</h2>
+      <h2>
+        {icon && <span className="icon">{icon}</span>} {title}
+      </h2>
       <p className="hint">{hint}</p>
       <ol className="five-list">
         {items.map((item, index) => (

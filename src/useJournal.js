@@ -5,6 +5,7 @@ const STORAGE_KEY = "daily-wins-journal";
 function emptyEntry() {
   return {
     wins: [],
+    lifeLessons: ["", ""],
     tomorrowTodos: [],
     gratitude: ["", "", "", "", ""],
     affirmations: ["", "", "", "", ""],
@@ -28,7 +29,7 @@ export function useJournal() {
   }, [entries]);
 
   function getEntry(dateKey) {
-    return entries[dateKey] ?? emptyEntry();
+    return { ...emptyEntry(), ...entries[dateKey] };
   }
 
   function updateEntry(dateKey, updater) {
