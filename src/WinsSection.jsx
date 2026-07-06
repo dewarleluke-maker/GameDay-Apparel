@@ -18,6 +18,7 @@ export default function WinsSection({ wins, onChange }) {
     <section className="card">
       <h2>
         <span className="icon">✨</span> Today's Little Wins
+        {wins.length > 0 && <span className="count-chip">{wins.length}</span>}
       </h2>
       <p className="hint">Anything that went well, big or small.</p>
       <div className="add-row">

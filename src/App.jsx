@@ -1,17 +1,34 @@
 import { useState } from "react";
 import DateNav from "./DateNav";
+import DayProgress from "./DayProgress";
+import MoodPicker from "./MoodPicker";
 import WinsSection from "./WinsSection";
 import LifeLessonsSection from "./LifeLessonsSection";
 import TodoSection from "./TodoSection";
+import NoGoSection from "./NoGoSection";
 import FiveListSection from "./FiveListSection";
-import { useJournal } from "./useJournal";
-import { todayKey } from "./dateUtils";
+import { entryHasContent, useJournal } from "./useJournal";
+import { addDays, todayKey } from "./dateUtils";
 import "./App.css";
+
+function computeStreak(entries) {
+  let key = todayKey();
+  if (!entryHasContent(entries[key])) {
+    key = addDays(key, -1);
+  }
+  let streak = 0;
+  while (entryHasContent(entries[key])) {
+    streak += 1;
+    key = addDays(key, -1);
+  }
+  return streak;
+}
 
 export default function App() {
   const [dateKey, setDateKey] = useState(todayKey());
-  const { getEntry, updateEntry } = useJournal();
+  const { entries, getEntry, updateEntry } = useJournal();
   const entry = getEntry(dateKey);
+  const streak = computeStreak(entries);
 
   return (
     <div className="app">
@@ -19,12 +36,30 @@ export default function App() {
         <h1>
           <span className="icon">🌿</span> Daily Wins Journal
         </h1>
-        <p className="tagline">Notice the good, plan ahead, and remember what you're grateful for.</p>
+        <p className="tagline">
+          Notice the good, plan ahead, and let go of what holds you back.
+        </p>
+        {streak > 0 && (
+          <div className="streak" title="Consecutive days journaled">
+            🔥 {streak}-day streak
+          </div>
+        )}
       </header>
 
-      <DateNav dateKey={dateKey} onChange={setDateKey} />
+      <DateNav
+        dateKey={dateKey}
+        onChange={setDateKey}
+        hasEntry={(key) => entryHasContent(entries[key])}
+      />
+
+      <DayProgress entry={entry} />
 
       <main>
+        <MoodPicker
+          mood={entry.mood}
+          onChange={(mood) => updateEntry(dateKey, (current) => ({ ...current, mood }))}
+        />
+
         <WinsSection
           wins={entry.wins}
           onChange={(wins) => updateEntry(dateKey, (current) => ({ ...current, wins }))}
@@ -42,6 +77,11 @@ export default function App() {
           onChange={(tomorrowTodos) =>
             updateEntry(dateKey, (current) => ({ ...current, tomorrowTodos }))
           }
+        />
+
+        <NoGoSection
+          noGos={entry.noGos}
+          onChange={(noGos) => updateEntry(dateKey, (current) => ({ ...current, noGos }))}
         />
 
         <FiveListSection

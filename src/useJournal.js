@@ -4,12 +4,27 @@ const STORAGE_KEY = "daily-wins-journal";
 
 function emptyEntry() {
   return {
+    mood: null,
     wins: [],
     lifeLessons: ["", ""],
     tomorrowTodos: [],
+    noGos: [],
     gratitude: ["", "", "", "", ""],
     affirmations: ["", "", "", "", ""],
   };
+}
+
+export function entryHasContent(entry) {
+  if (!entry) return false;
+  return (
+    entry.mood != null ||
+    (entry.wins?.length ?? 0) > 0 ||
+    (entry.tomorrowTodos?.length ?? 0) > 0 ||
+    (entry.noGos?.length ?? 0) > 0 ||
+    (entry.lifeLessons ?? []).some((l) => l.trim()) ||
+    (entry.gratitude ?? []).some((g) => g.trim()) ||
+    (entry.affirmations ?? []).some((a) => a.trim())
+  );
 }
 
 function loadEntries() {
@@ -34,10 +49,10 @@ export function useJournal() {
 
   function updateEntry(dateKey, updater) {
     setEntries((prev) => {
-      const current = prev[dateKey] ?? emptyEntry();
+      const current = { ...emptyEntry(), ...prev[dateKey] };
       return { ...prev, [dateKey]: updater(current) };
     });
   }
 
-  return { getEntry, updateEntry };
+  return { entries, getEntry, updateEntry };
 }

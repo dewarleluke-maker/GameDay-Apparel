@@ -22,6 +22,11 @@ export default function TodoSection({ todos, onChange }) {
     <section className="card">
       <h2>
         <span className="icon">✅</span> Tomorrow's To-Do List
+        {todos.length > 0 && (
+          <span className="count-chip">
+            {todos.filter((t) => t.done).length}/{todos.length}
+          </span>
+        )}
       </h2>
       <p className="hint">Set up tomorrow before you close out today.</p>
       <div className="add-row">
