@@ -47,3 +47,28 @@ export function weekdayLetter(dateKey) {
 export function dayOfMonth(dateKey) {
   return toDate(dateKey).getDate();
 }
+
+export function monthLabel(year, month) {
+  return new Date(year, month, 1).toLocaleDateString(undefined, {
+    month: "long",
+    year: "numeric",
+  });
+}
+
+// Calendar grid for a month: leading nulls pad to the first weekday,
+// then a dateKey for each day of the month.
+export function buildMonth(year, month) {
+  const firstWeekday = new Date(year, month, 1).getDay();
+  const days = new Date(year, month + 1, 0).getDate();
+  const cells = [];
+  for (let i = 0; i < firstWeekday; i += 1) cells.push(null);
+  for (let d = 1; d <= days; d += 1) cells.push(toDateKey(new Date(year, month, d)));
+  return cells;
+}
+
+export function shortDate(dateKey) {
+  return toDate(dateKey).toLocaleDateString(undefined, {
+    month: "numeric",
+    day: "numeric",
+  });
+}

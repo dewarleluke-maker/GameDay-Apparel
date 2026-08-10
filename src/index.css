@@ -11,6 +11,8 @@
   --danger: #e15554;
   --success: #2a9d5c;
   --success-dark: #1f7a46;
+  --field-bg: #ffffff;
+  --track-bg: rgba(43, 36, 64, 0.1);
   --shadow: 0 12px 30px -10px rgba(76, 53, 110, 0.18);
   --shadow-soft: 0 4px 14px -6px rgba(76, 53, 110, 0.12);
 
@@ -21,6 +23,23 @@
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gradient: linear-gradient(160deg, #191325 0%, #1e1630 45%, #141329 100%);
+    --card-bg: rgba(40, 33, 60, 0.72);
+    --text: #ece9f6;
+    --text-muted: #a99fc4;
+    --border: rgba(255, 255, 255, 0.12);
+    --accent-dark: #ff8a68;
+    --accent2-dark: #a49bff;
+    --success-dark: #4cc282;
+    --field-bg: #221b34;
+    --track-bg: rgba(255, 255, 255, 0.14);
+    --shadow: 0 14px 34px -12px rgba(0, 0, 0, 0.6);
+    --shadow-soft: 0 4px 16px -6px rgba(0, 0, 0, 0.5);
+  }
 }
 
 * {
@@ -39,6 +58,9 @@ button {
   cursor: pointer;
 }
 
-input[type="text"] {
+input,
+textarea,
+select {
   font: inherit;
+  color: var(--text);
 }
