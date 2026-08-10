@@ -2,6 +2,7 @@ import { useState } from "react";
 import DateNav from "./DateNav";
 import DayProgress from "./DayProgress";
 import MoodPicker from "./MoodPicker";
+import ScorecardSection from "./ScorecardSection";
 import WinsSection from "./WinsSection";
 import LifeLessonsSection from "./LifeLessonsSection";
 import TodoSection from "./TodoSection";
@@ -58,6 +59,11 @@ export default function App() {
         <MoodPicker
           mood={entry.mood}
           onChange={(mood) => updateEntry(dateKey, (current) => ({ ...current, mood }))}
+        />
+
+        <ScorecardSection
+          scorecard={entry.scorecard}
+          onChange={(scorecard) => updateEntry(dateKey, (current) => ({ ...current, scorecard }))}
         />
 
         <WinsSection

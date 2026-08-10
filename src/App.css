@@ -535,6 +535,138 @@ header h1 .icon {
   animation: pop-in 0.3s ease;
 }
 
+.scorecard-summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 122, 89, 0.08), rgba(108, 99, 255, 0.1));
+  border: 1px solid var(--border);
+}
+
+.scorecard-grade {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 76px;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.scorecard-grade.grade-a {
+  color: var(--success);
+}
+
+.scorecard-grade.grade-b {
+  color: var(--accent2-dark);
+}
+
+.scorecard-grade.grade-c {
+  color: #c8801a;
+}
+
+.scorecard-grade.grade-d,
+.scorecard-grade.grade-f {
+  color: var(--danger);
+}
+
+.scorecard-total {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.scorecard-total-num {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.scorecard-total-max {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.scorecard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.scorecard-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scorecard-row-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.scorecard-cat {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.scorecard-weight {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.scorecard-contribution {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent2-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.scorecard-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(43, 36, 64, 0.1);
+  outline: none;
+  margin: 0;
+}
+
+.scorecard-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.scorecard-slider::-moz-range-thumb {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: var(--accent2);
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.scorecard-slider:focus {
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
 footer {
   text-align: center;
   margin-top: 36px;

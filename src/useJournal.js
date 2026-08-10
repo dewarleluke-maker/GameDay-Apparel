@@ -11,6 +11,7 @@ function emptyEntry() {
     noGos: [],
     gratitude: ["", "", "", "", ""],
     affirmations: ["", "", "", "", ""],
+    scorecard: null,
   };
 }
 
@@ -23,7 +24,8 @@ export function entryHasContent(entry) {
     (entry.noGos?.length ?? 0) > 0 ||
     (entry.lifeLessons ?? []).some((l) => l.trim()) ||
     (entry.gratitude ?? []).some((g) => g.trim()) ||
-    (entry.affirmations ?? []).some((a) => a.trim())
+    (entry.affirmations ?? []).some((a) => a.trim()) ||
+    entry.scorecard != null
   );
 }
 
