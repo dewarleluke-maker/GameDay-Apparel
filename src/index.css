@@ -21,6 +21,7 @@
 
   font: 16px/1.55 var(--font-body);
   color: var(--text);
+  color-scheme: light dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

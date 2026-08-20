@@ -390,6 +390,172 @@ header h1 .icon {
   background: rgba(225, 85, 84, 0.12);
 }
 
+.sched-add {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.sched-add-text {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--field-bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sched-add-text:focus {
+  outline: none;
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+.sched-add-times {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.sched-time-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.sched-time-field span {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sched-time-field input {
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--field-bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sched-time-field input:focus {
+  outline: none;
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+.sched-add-btn {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px -6px rgba(224, 86, 58, 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sched-add-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px -6px rgba(224, 86, 58, 0.6);
+}
+
+.sched-add-btn:active {
+  transform: scale(0.96);
+}
+
+.schedule {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sched-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(108, 99, 255, 0.06);
+  border-radius: 10px;
+  padding: 10px 12px 12px;
+  animation: item-in 0.25s ease;
+}
+
+.sched-time {
+  align-self: flex-start;
+  border: none;
+  background: rgba(108, 99, 255, 0.14);
+  color: var(--accent2-dark);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  transition: filter 0.15s ease;
+}
+
+.sched-time:hover {
+  filter: brightness(1.05);
+}
+
+.sched-time.untimed {
+  background: none;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  font-weight: 600;
+}
+
+.sched-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sched-edit {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 2px;
+}
+
+.sched-edit .sched-time-field {
+  flex: 1 1 88px;
+}
+
+.sched-edit-done,
+.sched-edit-clear {
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.sched-edit-done {
+  border: none;
+  background: var(--accent2);
+  color: #fff;
+}
+
+.sched-edit-clear {
+  background: none;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.sched-edit-clear:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
 .five-list {
   list-style: none;
   margin: 0;
